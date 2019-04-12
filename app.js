@@ -79,7 +79,7 @@ List.findOne({name: customListName}, function(err, foundList){
       res.redirect("/" + customListName);
     } else {
       //Show an existing list
-      res.render("list", {listTitle: foundList.name, newListItems: foundList.items})
+      res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
     }
   }
 });
