@@ -5,7 +5,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-var url = process.env.MONGOLAB_URI;
+const url = process.env.MONGOLAB_URI.toString();
 // const date = require(__dirname + "/date.js");
 
 const app = express();
