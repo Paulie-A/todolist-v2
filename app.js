@@ -5,7 +5,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const url = process.env.MONGOLAB_URI.toString();
+const url = process.env.MONGOLAB_URI;
+
 // const date = require(__dirname + "/date.js");
 
 const app = express();
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect(url), {useNewUrlParser: true};
+mongoose.connect(url, {useNewUrlParser: true});
     mongoose.connection.once('open', function(){
       console.log('Conection has been made!');
     }).on('error', function(error){
