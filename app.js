@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect(url, {useNewUrlParser: true});
+// mongoose.connect(url,{useNewUrlParser: true});
+mongoose.connect(url,{useMongoClient: true});
     mongoose.connection.once('open', function(){
       console.log('Conection has been made!');
     }).on('error', function(error){
