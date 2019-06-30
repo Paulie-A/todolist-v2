@@ -15,7 +15,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// Connect to MongoDB
 mongoose.connect(url), {useNewUrlParser: true};
+    mongoose.connection.once('open', function(){
+      console.log('Conection has been made!');
+    }).on('error', function(error){
+        console.log('Error is: ', error);
+    });
 
 const itemsSchema = {
   name: String
